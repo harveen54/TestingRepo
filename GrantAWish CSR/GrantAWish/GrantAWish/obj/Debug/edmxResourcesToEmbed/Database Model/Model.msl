@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GrantAWishModelStoreContainer" CdmEntityContainer="GrantAWishEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="GrantAWishModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="adminID" ColumnName="adminID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="contact_Number" ColumnName="contact_Number" />
+          <ScalarProperty Name="addedby" ColumnName="addedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="GrantAWishModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="signup_Date" ColumnName="signup_Date" />
+          <ScalarProperty Name="contact_Number" ColumnName="contact_Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wishes">
+      <EntityTypeMapping TypeName="GrantAWishModel.Wishes">
+        <MappingFragment StoreEntitySet="Wishes">
+          <ScalarProperty Name="wishId" ColumnName="wishId" />
+          <ScalarProperty Name="wisherName" ColumnName="wisherName" />
+          <ScalarProperty Name="wisherAge" ColumnName="wisherAge" />
+          <ScalarProperty Name="wisherGender" ColumnName="wisherGender" />
+          <ScalarProperty Name="wish" ColumnName="wish" />
+          <ScalarProperty Name="wishDate" ColumnName="wishDate" />
+          <ScalarProperty Name="wishStatus" ColumnName="wishStatus" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="grantedBy" ColumnName="grantedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

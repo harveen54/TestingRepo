@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GrantAWishModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="adminID" />
+    </Key>
+    <Property Name="adminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contact_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="addedby" Type="Int32" />
+    <NavigationProperty Name="Admin1" Relationship="Self.FK__Admin__addedby__2C3393D0" FromRole="Admin" ToRole="Admin1" />
+    <NavigationProperty Name="Admin2" Relationship="Self.FK__Admin__addedby__2C3393D0" FromRole="Admin1" ToRole="Admin" />
+    <NavigationProperty Name="Wishes" Relationship="Self.FK__Wishes__addedBy__2D27B809" FromRole="Admin" ToRole="Wishes" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="signup_Date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="contact_Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Wishes" Relationship="Self.FK__Wishes__grantedB__2E1BDC42" FromRole="User" ToRole="Wishes" />
+  </EntityType>
+  <EntityType Name="Wishes">
+    <Key>
+      <PropertyRef Name="wishId" />
+    </Key>
+    <Property Name="wishId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wisherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="wisherAge" Type="Int32" Nullable="false" />
+    <Property Name="wisherGender" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="wish" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="wishDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="wishStatus" Type="Int32" Nullable="false" />
+    <Property Name="addedBy" Type="Int32" />
+    <Property Name="grantedBy" Type="Int64" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__Wishes__addedBy__2D27B809" FromRole="Wishes" ToRole="Admin" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Wishes__grantedB__2E1BDC42" FromRole="Wishes" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Admin__addedby__2C3393D0">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Admin1" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="adminID" />
+      </Principal>
+      <Dependent Role="Admin1">
+        <PropertyRef Name="addedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wishes__addedBy__2D27B809">
+    <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
+    <End Role="Wishes" Type="Self.Wishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin">
+        <PropertyRef Name="adminID" />
+      </Principal>
+      <Dependent Role="Wishes">
+        <PropertyRef Name="addedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wishes__grantedB__2E1BDC42">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Wishes" Type="Self.Wishes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Wishes">
+        <PropertyRef Name="grantedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GrantAWishEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Wishes" EntityType="Self.Wishes" />
+    <AssociationSet Name="FK__Admin__addedby__2C3393D0" Association="Self.FK__Admin__addedby__2C3393D0">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Admin1" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wishes__addedBy__2D27B809" Association="Self.FK__Wishes__addedBy__2D27B809">
+      <End Role="Admin" EntitySet="Admin" />
+      <End Role="Wishes" EntitySet="Wishes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wishes__grantedB__2E1BDC42" Association="Self.FK__Wishes__grantedB__2E1BDC42">
+      <End Role="User" EntitySet="User" />
+      <End Role="Wishes" EntitySet="Wishes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

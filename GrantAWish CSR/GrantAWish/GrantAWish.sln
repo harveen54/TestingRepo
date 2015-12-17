@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrantAWish_Main", "GrantAWish_Main", "{1A0F983C-2C1E-4225-B4BD-E861454140E3}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GrantAWish_Website(1)", "http://localhost:3662", "{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{fc090070-f807-4b4d-8aed-f56bf1baa579}|GrantAWish.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_3662"
+		Debug.AspNetCompiler.PhysicalPath = "GrantAWish_Website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_3662\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_3662"
+		Release.AspNetCompiler.PhysicalPath = "GrantAWish_Website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_3662\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "GrantAWish_Website\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrantAWish", "GrantAWish", "{6FC0C25C-9D11-4AEA-BC3F-1A0577F43A48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrantAWish", "GrantAWish\GrantAWish.csproj", "{FC090070-F807-4B4D-8AED-F56BF1BAA579}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{FC090070-F807-4B4D-8AED-F56BF1BAA579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC090070-F807-4B4D-8AED-F56BF1BAA579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC090070-F807-4B4D-8AED-F56BF1BAA579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC090070-F807-4B4D-8AED-F56BF1BAA579}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF7056CE-4D48-45A3-BED5-D333B9AAFFD0} = {1A0F983C-2C1E-4225-B4BD-E861454140E3}
+		{FC090070-F807-4B4D-8AED-F56BF1BAA579} = {6FC0C25C-9D11-4AEA-BC3F-1A0577F43A48}
+	EndGlobalSection
+EndGlobal
