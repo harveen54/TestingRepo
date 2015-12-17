@@ -1,0 +1,45 @@
+use GrantAWish
+select * from Wishes
+
+go
+
+create table [User](
+ userID bigint identity(1,1) primary key,
+ username nvarchar(250) not null unique,
+ password nvarchar(max) not null,
+ name nvarchar(50) not null,
+ signup_Date datetime2 not null,
+ contact_Number varchar(10) not null 
+)
+
+go
+
+ create table [Admin](
+ adminID int identity(1,1) primary key,
+ name nvarchar(50) not null,
+ username nvarchar(250) not null,
+ password nvarchar(max) not null,
+ contact_Number varchar(10) not null,
+ addedby int references Admin(adminID)
+ )
+
+ go 
+
+ alter table Wishes
+ add addedBy int references Admin(adminID)
+
+ go
+ alter table Wishes
+ add grantedBy bigint references [User](userID)
+
+ go
+
+ Select * from Wishes
+ Select * from Admin
+ Select * from [User]
+ 
+ go
+
+insert into Admin values('Harveen','harveen54@gmail.com','123456',9915123897,1)
+insert into [user] values('harveen54@gmail.com','123456','harveen',GetDate(),9915123897)
+update wishes set addedBy=1,grantedBy=1 where wishId=1
