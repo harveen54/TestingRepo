@@ -25,6 +25,19 @@ go
 
  go 
 
+create table Wishes
+(
+wishId int identity,
+wisherName nvarchar(100) not null,
+wisherGender varchar(6) default 'Male',
+wishStatus int not null,
+wish nvarchar(MAX) not null,
+wishDate datetime2 not null,
+wisherAge int not null
+);
+
+go
+
  alter table Wishes
  add addedBy int references Admin(adminID)
 
@@ -42,4 +55,5 @@ go
 
 insert into Admin values('Harveen','harveen54@gmail.com','123456',9915123897,1)
 insert into [user] values('harveen54@gmail.com','123456','harveen',GetDate(),9915123897)
+insert into Wishes values('Harveen','Male',1,'New Clothes',GETDATE(),21,null,null)
 update wishes set addedBy=1,grantedBy=1 where wishId=1
